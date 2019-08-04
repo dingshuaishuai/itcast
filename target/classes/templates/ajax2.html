@@ -1,0 +1,609 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Mr. Ding</title>
+<link rel="icon" href="http://47.111.20.125/img/ding.ico">
+<link rel="stylesheet" href="css/bootstrapmin.css" />
+<script src="css/jqmin.js"></script>
+<script src="css/bootmin.js"></script>
+<script
+	src="https://cdn.staticfile.org/jquery-cookie/1.4.1/jquery.cookie.min.js"></script>
+<script src="css/validate.js"></script>
+<script src="css/validation_zh.js"></script>
+<link rel="stylesheet" href="css/my.css" />
+<script type="text/javascript" src="css/my.js"></script>
+<script type="text/javascript">
+	/*  $.validator.setDefaults({
+	 
+	   submitHandler: function(form) { alert("提交事件!");form.submit(); }
+	   
+	}); 
+	$(function(){
+	   	$("#tagform").validate();
+	   	$("#urlform").validate();
+	   	    
+	   	    	
+	    }) */
+	/* 检查cookie */
+	$(function() {
+		//除了首次都能用,收到json数据,渲染到页面
+		$.ajax({
+
+					type : "get",
+					url : "/react2",
+					async : false,
+					success : function(data) {
+						$("#myTab").html('');
+						for ( var i in data[0]) {
+							$("#myTab").append(' <li><a href=#'+data[0][i].name+' data-toggle="tab">'+ data[0][i].name + '</a></li>');
+						}
+
+						$("#myTabContent").html('');
+						var tag;
+						var url;
+						for ( var i in data[0]) {
+							tag = data[0][i].name;
+							//alert('tag='+tag);
+							$("#myTabContent").append('<div class="tab-pane fade" id='+data[0][i].name+'></div>');
+							for ( var x in data[1]) {
+								url = data[1][x].tagname;
+								//alert('url='+url);
+								if (tag == url) {
+   $('#'+data[0][i].name).append('<li><a href='+data[1][x].url+' target="_blank">'+ data[1][x].name+ '</a></li>');
+								}
+
+							}
+						}
+					}
+				});
+		
+		
+		
+		var x = document.cookie;
+		var z = $.cookie('phone');
+		var y = $.cookie('huiyuan');
+
+		/* 会员登录 ,给换图功能,还有别的功能?*/
+		if (y == null || y == '') {
+			$("#huantu").hide();
+		}
+		/* 普通登录 */
+		if (x == null || x == '') {
+
+			$("#atuichu").hide();
+			$("#yonghuming").hide();
+			$("#huiyuan").hide();
+			$("#xiugaitag").hide();
+			$("#deltag").hide();
+			$("#delurl").hide();
+			/* $("#savetag").hide(); 下面是JQ的添加属性方法*/
+			$("#savetag").attr("data-target", "");
+			$("#savetag").attr("onclick", "savetag()");
+			$("#saveurl").attr("data-target", "");
+			$("#saveurl").attr("onclick", "saveurl()");
+
+		} else {
+			$("#azhuce,#adenglu").hide();
+			$("#yonghuming").html('欢迎' + z);
+			$("#hiddenurl").attr("value", z);
+			$("#hiddentag").attr("value", z);
+			$("#hiddentag2").attr("value", z);
+			$("#hiddentag3").attr("value", z);
+			$("#hiddentag4").attr("value", z);
+
+		}
+	});
+	/* 检查tag,要传uid是否存在 */
+	function checktag() {
+		var qq = $('#tagname').val();
+		if (qq == null || qq == '') {
+			alert('标签页名不能为空')
+			return false;
+		}
+		var flg;
+		$.ajax({
+			url : "/checktag",
+			type : "post",
+			dataType : "json",
+			async : false,
+			data : jQuery('#tagform').serialize(),
+			success : function(data) {
+
+				if (data.state == true) {
+
+					flg = true;
+
+				} else {
+					flg = false;
+					alert("标签页名已经存在!")
+				}
+			}
+		});
+		return flg;
+	}
+	/*检查url,链接名不能为空=====================================================================================  */
+	function checkurl() {
+		var flg;
+		var x = $('#name').val();
+		if (x == null || x == '') {
+			alert('链接名不能为空!')
+			flg = false;
+		}
+		var y = $('#url').val();
+		if (y == null || y == '') {
+			alert('url不能为空!')
+			flg = false;
+		}
+
+		return flg;
+	}
+
+	/* 注册检查手机是否已经注册 ===================================================================*/
+	function zhuce() {
+		var a = $('#password').val();
+		var b = $('#repassword').val();
+		if (a != b) {
+			alert('2次输入的密码不一样!');
+			return false;
+		}
+		var flg;
+		$.ajax({
+			url : "/checkzhuce",
+			type : "post",
+			dataType : "json",
+			async : false,
+			data : jQuery('#phone').serialize(),
+			success : function(data) {
+
+				if (data.state == true) {
+
+					flg = true;
+					alert("注册成功")
+				} else {
+					flg = false;
+					alert("手机号已经注册")
+				}
+			}
+		});
+		return flg;
+
+	}
+
+	/* ====check登录================ ===================================================================*/
+	function checkdenglu() {
+		var flg;
+		$.ajax({
+			url : "/checkdenglu",
+			type : "post",
+			dataType : "json",
+			async : false,
+			data : jQuery('#dengluform').serialize(),
+			success : function(data) {
+
+				if (data.state == true) {
+					flg = true;
+					alert("登录成功")
+					/* 登录成功后,向浏览器写cookie,保存手机号..在后台写的 */
+				} else {
+					flg = false;
+					alert("密码或用户名不正确")
+				}
+			}
+		});
+		return flg;
+
+	}
+	/*=退出登录===================================================================  */
+	function tuichu() {
+		document.cookie = "phone=; expires=Thu, 01 Jan 1970 00:00:00 GMT";
+		alert("退出成功!");
+		location.reload();
+
+	}
+	/*=没登录限制保存标签的点击============================================================================  */
+	function savetag() {
+
+		alert('注册并登陆后才能添加标签页!')
+	}
+
+	function saveurl() {
+		alert('注册并登陆后才能添加超链接!')
+	}
+	/* url, tag, 登录,注册,  聚焦===========================  */
+	function urljujiao() {
+		$('#myModal1').on('shown.bs.modal', function() {
+			$('#myModal1 #name').focus();
+		});
+	}
+	function tagjujiao() {
+		$('#myModal2').on('shown.bs.modal', function() {
+			$('#myModal2 #tagname').focus();
+		});
+	}
+
+	function denglujujiao() {
+		$('#myModal4').on('shown.bs.modal', function() {
+			$('#myModal4 #phone').focus();
+		});
+	}
+	function zhucejujiao() {
+		$('#myModal3').on('shown.bs.modal', function() {
+			$('#myModal3 #phone').focus();
+		});
+	}
+
+	/* 删除功能================================================================ */
+	function del() {
+
+	}
+	/*修改标签页前的检查  checkuptag()======================  */
+	function checkuptag() {
+		var a = $("#retagname").val();
+		if (a == null || a == '') {
+			alert('重命名不能为空!');
+			return false;
+		}
+		var flg;
+		$.ajax({
+			url : "/checktag",
+			type : "post",
+			dataType : "json",
+			async : false,
+			data : jQuery('#uptagform').serialize(),
+			success : function(data) {
+
+				if (data.state == true) {
+
+					flg = true;
+
+				} else {
+					flg = false;
+					alert("标签页名已经存在!")
+				}
+			}
+		});
+		return flg;
+	}
+</script>
+
+</head>
+<body
+	style="overflow-x: hidden; overflow-y: hidden; background-color: #222222;">
+	<div id="bd"
+		style="margin: 0px; padding: 0px; background-size: 100%; background-color: #222222;">
+		<!--模态框1 添加url -->
+		<div class="modal fade" id="myModal1" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content">
+
+					<div class="modal-body">
+						<form class="form-inline" action="/saveUrl" method="get"
+							id="urlform" onsubmit="return checkurl()">
+							<input type="hidden" name="uid" value="" id="hiddenurl">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<!-- 下拉框,要遍历tag -->
+							<select name="tagname" required>
+								<option th:each="li1:${listTag}"><font
+										th:text="${li1.name}"></option>
+
+							</select>
+							<!--  -->
+							<div class="form-group">
+								<label for="name">名称</label> <input type="text"
+									class="form-control" name="name" placeholder="" id="name"
+									type="text" maxlength="100">
+							</div>
+							<div class="form-group">
+								<label for="url">链接</label> <input type="text"
+									class="form-control" name="url" placeholder="" id="url"
+									type="url" maxlength="2048">
+								<!-- required -->
+							</div>
+							&emsp;
+							<button type="submit" class="btn btn-primary">保存</button>
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--模态框2 添加tag 要改成ajax=======================================================================-->
+		<div class="modal fade" id="myModal2" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content" style="width: 250px">
+
+					<div class="modal-body">
+						<form class="form-inline" action="/saveTag" method="get"
+							style="width: 100px" id="tagform" onsubmit="return checktag()">
+							<input type="hidden" name="uid" value="" id="hiddentag">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<div class="form-group">
+								<label for="tagname">名称</label> <input type="text"
+									class="form-control" name="name" placeholder="可输入最多5个字符"
+									id="tagname" type="text" maxlength="5">
+
+							</div>
+
+							<button type="submit" class="btn btn-primary">保存</button>
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--===模态框3 注册==================================================================================================  -->
+		<div class="modal fade" id="myModal3" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content" style="width: 250px">
+
+					<div class="modal-body">
+						<form class="form-inline" action="/zhuce" method="post"
+							style="width: 100px" id="zhuceform" onsubmit="return zhuce()">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<div class="form-group">
+								<label for="phone">手机号</label> <input class="form-control"
+									name="phone" placeholder="" id="phone" type="text"
+									maxlength="11" required>
+
+							</div>
+							<div class="form-group">
+								<label for="password">密码</label> <input type="password"
+									class="form-control" name="password" placeholder=""
+									id="password" maxlength="11" required>
+
+							</div>
+							<div class="form-group">
+								<label for="repassword">确认密码</label> <input type="password"
+									class="form-control" name="repassword" placeholder=""
+									id="repassword" maxlength="11" required>
+
+							</div>
+
+							<button type="submit" class="btn btn-primary">注册</button>
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+
+		<!--===模态框4 登录==================================================================================================  -->
+		<div class="modal fade" id="myModal4" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content" style="width: 250px">
+
+					<div class="modal-body">
+						<form class="form-inline" action="/denglu" method="post"
+							style="width: 100px" id="dengluform"
+							onsubmit="return checkdenglu()">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<div class="form-group">
+								<label for="phone">手机号</label> <input class="form-control"
+									name="phone" placeholder="" id="phone" type="text"
+									maxlength="11" required>
+
+							</div>
+							<div class="form-group">
+								<label for="password">密码</label> <input type="password"
+									class="form-control" name="password" placeholder=""
+									id="password" maxlength="11" required>
+
+							</div>
+
+
+							<button type="submit" class="btn btn-primary">登录</button>
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--模态框5 修改tag=====================================================================  -->
+		<div class="modal fade" id="myModal5" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content" style="width: 250px">
+
+					<div class="modal-body">
+						<form class="form-inline" action="/updateTag" method="get"
+							style="width: 100px" id="uptagform"
+							onsubmit="return checkuptag()">
+							<input type="hidden" name="uid" value="" id="hiddentag2">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<!-- 下拉框,要遍历tag -->
+							<select name="tagname" required>
+								<option th:each="li:${listTag}"><font
+										th:text="${li.name}"></option>
+
+							</select>
+							<!--  -->
+							<div class="form-group">
+								<label for="name">名称</label> <input type="text"
+									class="form-control" name="name" placeholder="最多5个字符"
+									id="retagname" type="text" maxlength="5">
+
+							</div>
+
+							<button type="submit" class="btn btn-primary">提交修改</button>
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--模态框6 删除标签页 =============================================================  -->
+		<div class="modal fade" id="myModal6" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content" style="width: 250px">
+
+					<div class="modal-body">
+						<form class="form-inline" action="/delTag" method="get"
+							style="width: 100px" id="uptagform">
+							<input type="hidden" name="uid" value="" id="hiddentag3">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<!-- 下拉框,要遍历tag -->
+							<select name="tagname" required>
+								<option th:each="li:${listTag}"><font
+										th:text="${li.name}"></option>
+
+							</select>
+
+
+							<button type="submit" class="btn btn-primary">确认删除</button>
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--模态框7 删除url =============================================================  -->
+		<div class="modal fade" id="myModal7" tabindex="-1" role="dialog"
+			aria-labelledby="myModalLabel">
+			<div class="modal-dialog" role="document">
+				<div class="modal-content"">
+
+					<div class="modal-body">
+						<form class="form-inline" action="/delurl" method="get"
+							style="width: 100px" id="uptagform">
+							<input type="hidden" name="uid" value="" id="hiddentag4">
+							<button type="button" class="close" data-dismiss="modal"
+								aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+							<!-- 下拉框,要遍历tag -->
+							<select name="urlname" required>
+								<option th:each="li:${listUrl}"><font
+										th:text="${li.name}"></option>
+
+							</select>
+
+
+							<button type="submit" class="btn btn-primary">确认删除</button>
+						</form>
+
+					</div>
+
+				</div>
+			</div>
+		</div>
+		<!--===  &nbsp;&nbsp;&nbsp; ==================================================================================================  -->
+		<a href="javascript:void(0)"
+			style="opacity: 0.5; color: aliceblue; text-decoration: none; padding-left: 14px; padding-top: 5px"
+			onclick="kg()">显/隐</a> <a href="javascript:void(0)"
+			style="opacity: 0.5; color: aliceblue; text-decoration: none; padding-left: 14px"
+			onclick="ht()" id="huantu">换图</a> <a href="javascript:void(0)"
+			style="opacity: 0.5; color: aliceblue; text-decoration: none; padding-left: 14px"
+			onclick="urljujiao()" data-toggle="modal" data-target="#myModal1"
+			id="saveurl">添加链接</a> <a href="javascript:void(0)"
+			style="opacity: 0.5; color: aliceblue; text-decoration: none; padding-left: 14px"
+			onclick="tagjujiao()" data-toggle="modal" data-target="#myModal2"
+			id="savetag">添加标签页</a> <a href="javascript:void(0)"
+			style="opacity: 0.5; color: aliceblue; text-decoration: none; padding-left: 14px"
+			onclick="zhucejujiao()" data-toggle="modal" data-target="#myModal3"
+			id="azhuce">注册</a> <a href="javascript:void(0)"
+			style="opacity: 0.5; color: aliceblue; text-decoration: none; padding-left: 14px"
+			onclick="denglujujiao()" data-toggle="modal" data-target="#myModal4"
+			id="adenglu">登录</a> <a href="javascript:void(0)"
+			style="opacity: 0.5; color: aliceblue; text-decoration: none; padding-left: 14px; float: right; padding-top: 5px; padding-right: 14px"
+			onclick="tuichu()" id="atuichu">退出</a> <a href="javascript:void(0)"
+			style="opacity: 0.5; color: aliceblue; text-decoration: none; padding-left: 14px; float: right; padding-top: 5px"
+			onclick="yonghuming()" id="yonghuming">欢迎***</a> <a
+			href="javascript:void(0)"
+			style="opacity: 0.5; color: aliceblue; text-decoration: none; padding-left: 14px"
+			data-toggle="modal" data-target="#myModal5" id="xiugaitag">修改标签页</a>
+		<a href="javascript:void(0)"
+			style="opacity: 0.5; color: aliceblue; text-decoration: none; padding-left: 14px"
+			data-toggle="modal" data-target="#myModal6" id="deltag">删除标签页</a> <a
+			href="javascript:void(0)"
+			style="opacity: 0.5; color: aliceblue; text-decoration: none; padding-left: 14px"
+			data-toggle="modal" data-target="#myModal7" id="delurl">删除url</a> <a
+			href="javascript:void(0)"
+			style="opacity: 0.5; color: aliceblue; text-decoration: none; padding-left: 14px; float: right; padding-top: 5px"
+			onclick="" id="huiyuan">成为会员</a>
+
+		<!-- ================================================================================================ -->
+		<div style="height: 100%; width: 100%;" id="dvv">
+			<ul id="myTab" class="nav nav-tabs" style="border-bottom: 0px;"
+				style="display:inline-block">
+				<!-- <script>
+			        
+					$.ajax({
+							
+							type:"get",
+							url:"/react2",
+							async:true,
+							success : function(data){
+								$("#myTab").html(''); 
+								for(var i in data){
+									$("#myTab").append(' <li><a href='+data[i].url+' target="_blank">'+data[i].name+'</a></li>');
+								}
+								//====================================
+								$("#myTabContent").html('');
+								for(var i in data[0]){
+								    $("#myTabContent").append('<div class="tab-pane fade" id='+data[0][i].name+' >' );
+								    if(data[1][i].tagname==data[0][i].name){
+								     $(data[0][i].tagname).append('<li><a href='+data[1][i].url+' target="_blank">'+data[1][i].name+'</a></li>');
+								}
+								
+							}
+						});
+					
+					
+			    </script> -->
+
+
+				<!-- <li th:each="li1:${listTag}">
+				   <a th:href="'#'+@{${li1.name}}" data-toggle="tab" ><font th:text="${li1.name}"></font></a>
+				</li> -->
+
+			</ul>
+			<!-- =============模板配合bootstarp并不友好 下面的有bug 改用ajax做,不是不友好,是自己遍历格式错了===================================================================== th:each="li2:${listUrl}" -->
+			<div id="myTabContent" class="tab-content">
+
+				<!-- <div class="tab-pane fade" th:id="${li3.name}" th:each="li3:${listTag}">
+					<li th:each="li2:${listUrl}" th:if="${li3.name}==${li2.tagname}" >
+						<a th:href="@{${li2.url}}" target="_blank">
+						<font th:text="${li2.name}"></font>
+						</a>
+					</li>
+					
+				</div>  -->
+				<strong><a href='http://www.beian.miit.gov.cn/'
+					target='_blank' style="margin-top: 539px; margin-left: 600px;">苏ICP备19017773号-1</a></strong>
+			</div>
+			<!-- ==================================================================================== margin-top: 539px;-->
+		</div>
+</body>
+</html>

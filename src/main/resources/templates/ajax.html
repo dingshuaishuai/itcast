@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="css/jqmin.js"></script> 
+	</head>
+	<body>
+		<input type="button" value="ajax" onclick="one()"/>
+		<div id="abc"></div>
+		<script>
+			function one(){
+			
+				$.ajax({
+					
+					type:"get",
+					url:"/react2",
+					async:true,
+					success : function(data){
+						$("#myTab").html(''); 
+						for(var i in data){
+							$("#myTab").append(' <li><a href='+data[i].url+' target="_blank">'+data[i].name+'</a></li>')
+							
+						}
+						
+					}
+				});
+			}
+		</script>
+	</body>
+</html>

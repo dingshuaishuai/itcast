@@ -1,0 +1,163 @@
+//注册表单总校验
+	function checkRegisterForm(){
+	    if(checkName()&&checkPwd()&&checkrPwd()&&checkCode()){	
+	    	jQuery.ajax({
+				url :"/supermarket/AddNewUser",
+				type : "post",
+				dataType :"json",
+				async:false,
+				data :jQuery('#register').serialize(),
+				success : function(data) {			
+						if(data.state=="Y"){
+							alert("注册成功");
+							closeRegister();
+							flg=true;
+						}else if (data.state=="N") {
+							alert("注册失败");
+							closeRegister();
+							flg=false;
+						}																	
+					},
+					error:function(){
+						alert("异常错误");
+					}
+				});	
+	    return true;
+	    }
+	    return false; 
+	}
+	//注册框焦点聚集
+	function register(pwp) {
+		$(pwp).parent().children().eq(0).children('span').css("display","none");
+		/*$('#registerName').css("display","none");
+		$('#registerPwd').css("display","none");
+		$('#registerPwd1').css("display","none");	*/
+	};
+	//注册验证用户
+	function checkName(){
+		var flg=false;
+		if($('#Name').val()==""){
+			$('#registerName').html("用户名不能为空").css({"display":"inline","color":"red"});
+			flg=false;
+		}else if(!/^[a-zA-Z][a-zA-Z0-9_]{4,15}$/.test($('#Name').val())){
+			$('#registerName').html("字母开头，长度5-16,只含字母，数字，下划线").css({"display":"inline","color":"red"});
+			flg=false;
+		}else{
+			jQuery.ajax({
+				url :"/supermarket/checkNameServlet",
+				type : "post",
+				dataType :"json",
+				async:false,
+				data :jQuery('#Name').serialize(),
+				success : function(data) {			
+						if(data.state=="N"){
+							$('#registerName').html("可注册").css({"display":"inline","color":"green"});
+							flg=true;
+						}else if (data.state=="Y") {
+							$('#registerName').html("用户已存在").css({"display":"inline","color":"red"});
+							$('#loginName').val("");
+							flg=false;
+						}																	
+					},
+					error:function(){
+						alert("异常错误");
+					}
+				});		
+		}
+		return flg;
+	}
+	//注册验证密码
+	function checkPwd() {
+		if ($('#regPwd').val()=="") {
+			$('#registerPwd').html("密码不能为空").css({"display":"inline","color":"red"});
+			return false;
+		}else if(!/^[a-zA-Z]\w{5,17}$/.test($('#regPwd').val())){
+			$('#registerPwd').html("字母开头，长度6-18,只含字母，数字，下划线").css({"display":"inline","color":"red"});
+			return false;
+		}
+		return true;
+	};
+	//注册验证确认密码
+	function checkrPwd() {
+		if ($('#regPwd').val()=="") {
+			$('#registerPwd').html("密码不能为空").css({"display":"inline","color":"red"});
+			return false;
+		}else if ($('#regPwd1').val()=="") {
+			$('#registerPwd1').html("密码不能为空").css({"display":"inline","color":"red"});
+			return false;
+		}else {
+			
+			if ($('#regPwd').val()!=$('#regPwd1').val()) {
+				$('#registerPwd1').html("前后密码不一致").css({"display":"inline","color":"red"});
+				return false;
+			}
+		}	
+		return true;
+	};
+	
+	//验证码
+ 
+	var num = 0;
+	var img = document.getElementById('createCode').onclick = function(){
+		num++;
+		this.src = 'createCode?num'+num;
+	}
+	function checkCode(){
+		var flg=false;
+		if($('#verCode').val()==""){
+			$('#verificationCode').html("验证码不能为空").css({"display":"inline","color":"red"});
+			flg=false;
+		}else{
+			$.ajax({
+				type:"post",
+				url:"CheckCode",
+				async:false,
+				dataType :"json",
+				data :jQuery('#verCode').serialize(),
+				success:function(data){
+					if(data.state=="Y"){
+						$('#verificationCode').html("验证码正确").css({"display":"inline","color":"green"});
+						flg=true;
+					}else if (data.state=="N") {
+						$('#verificationCode').html("验证码错误").css({"display":"inline","color":"red"});
+//						$('#verCode').val("");
+						flg=false;
+					}				
+				}
+	})
+		}
+	return flg;
+}
+	
+	//验证登录密码
+	function checkForm(){
+		var flg=false;
+		if($('#VerifyPwd').val()==""){
+			$('#VerifyregisterPwd').html("密码不能为空").css({"display":"inline","color":"red"});
+			flg=false;
+		}else{
+			jQuery.ajax({
+				url :"/supermarket/VerifyLoginPass",
+				type : "post",
+				dataType :"json",
+				async:false,
+				data :jQuery('#login').serialize(),
+				success : function(data) {			
+						if(data.state=="Y1"){
+							closeLogin();
+							flg=true;
+						}else if(data.state=="Y2"){
+							window.location.href="/supermarket/jsp/admin/admin_index.jsp";
+						}else if (data.state=="N") {
+							$('#loginName').html("账号或密码不正确").css({"display":"inline","color":"red"});
+							$('#VerifyPwd').val("");
+							flg=false;
+						}																	
+					},
+					error:function(){
+						alert("异常错误");
+					}
+				});		
+		}
+		return flg;
+		}

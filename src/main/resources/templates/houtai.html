@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>只是链接后台</title>
+<link rel="stylesheet" href="css/bootstrapmin.css" />
+<script src="css/bootmin.js"></script>
+<script src="css/jqmin.js"></script>
+<script type="text/javascript">
+/*添加vip的检查  */
+ function check(){
+	 var qq = $('#vipid').val();
+ 	if(qq==null||qq==''){
+ 	alert('账号不能为空');
+ 	
+ 		return false;
+ 	}
+ 	//检查账号是否存在
+ 	var flg ;
+	  $.ajax({
+		    url :"/checkhoutai",
+			type : "post",
+			dataType :"json",
+			async:false,
+			data :jQuery('#vipform2').serialize(),
+			success : function(data){
+				
+				
+				if(data.state==true){
+					
+					flg = true;
+					
+				}else{
+					flg = false;
+					alert("此账号不存在!");
+					location.reload();
+				}
+			}
+	  });
+	  return flg;
+ }
+ /*取消vip的检查  */
+ function quxiaovipcheck(){
+	 var qq = $('#vipid3').val();
+	 	if(qq==null||qq==''){
+	 	alert('账号不能为空');
+	 		return false;
+	 	}
+	 	//检查账号是否存在
+	 	var flg ;
+		  $.ajax({
+			    url :"/checkhoutai",
+				type : "post",
+				dataType :"json",
+				async:false,
+				data :jQuery('#vipform3').serialize(),
+				success : function(data){
+					
+					
+					if(data.state==true){
+						
+						flg = true;
+						
+					}else{
+						flg = false;
+						alert("此账号不存在!");
+						location.reload();
+					}
+				}
+		  });
+		  return flg;
+	 
+ }
+</script>
+</head>
+<body>
+这是后台
+<form action="/houtaisave" method="post" name="vipform" onsubmit="return check()" id="vipform2">
+  <input type="text" name="vipid" placeholder="输入要开通vip的账号" id="vipid" autofocus="autofocus">
+  
+  <input type="submit" value="提交"/>
+
+</form>
+<!--  取消会员功能-->
+<form action="/houtaidelvip" method="post" name="vipform" onsubmit="return quxiaovipcheck()" id="vipform3" style="padding-top:50px ">
+  <input type="text" name="vipid" placeholder="输入要取消vip的账号" id="vipid3">
+  
+  <input type="submit" value="提交"/>
+
+</form>
+
+</body>
+</html>

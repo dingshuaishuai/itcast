@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html>
+ <head> 
+  <meta charset="utf-8" /> 
+  <title>Mr. Ding</title> 
+  <link rel="stylesheet" href="css/bootstrapmin.css" /> 
+  <script src="css/jqmin.js"></script> 
+  <script src="css/bootmin.js"></script> 
+  <link rel="stylesheet" href="css/my.css" />
+  <script type="text/javascript" src="css/my.js" ></script>
+
+ </head> 
+ <body style="overflow-x: hidden;overflow-y: hidden; background-color:#222222; "> 
+ <div id="bd" style="margin: 0px;padding: 0px;background-size:100%;background-color:#222222;" >	
+ 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+	  <div class="modal-dialog" role="document">
+	    <div class="modal-content">
+	      
+	      <div class="modal-body">
+	      	  <form class="form-inline">
+	      		<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+			  <div class="form-group">
+			    <label for="exampleInputName2">名称</label>
+			    <input type="text" class="form-control" id="exampleInputName2" placeholder="">
+			  </div>
+			  <div class="form-group">
+			    <label for="exampleInputEmail2">链接</label>
+			    <input type="email" class="form-control" id="exampleInputEmail2" placeholder="">
+			  </div>&emsp;
+			  <button type="button" class="btn btn-primary">保存</button>
+			</form>
+	        
+	      </div>
+	    
+    </div>
+  </div>
+</div>
+ 	
+  <a href="javascript:void(0)" style="opacity: 0;color:aliceblue ;text-decoration:none;" onmouseover="style.opacity=0.5" onmouseout="style.opacity=0" onclick="kg()">显/隐</a> 
+  <a href="javascript:void(0)" style="opacity: 0;color:aliceblue ;text-decoration:none;" onmouseover="style.opacity=0.5" onmouseout="style.opacity=0" onclick="ht()">换图</a> 
+  <a href="javascript:void(0)" style="opacity: 0;color:aliceblue ;text-decoration:none;" onmouseover="style.opacity=0.5" onmouseout="style.opacity=0" onclick="javascript:(0)"  data-toggle="modal" data-target="#myModal">添加</a> 
+  <div style="height:100%;width: 100%;" id="dvv"> 
+   <ul id="myTab" class="nav nav-tabs" style="border-bottom: 0px;"> 
+    <li><a href="#工作" data-toggle="tab">工作</a></li> 
+    <li><a href="#学习" data-toggle="tab">学习</a></li> 
+    <li><a href="#娱乐" data-toggle="tab">娱乐</a></li> 
+    <li><a href="#文档" data-toggle="tab">文档</a></li> 
+    <li><a href="#生活" data-toggle="tab">生活</a></li> 
+    <li><a href="#招聘" data-toggle="tab">招聘</a></li> 
+    <li><a href="#工具" data-toggle="tab">工具</a></li> 
+   </ul> 
+   <div id="myTabContent" class="tab-content"> 
+    <div class="tab-pane fade" id="工作"> 
+     <li><a href=" https://www.google.com/       " target="_blank">google</a></li> 
+     <li><a href=" https://zh.wikipedia.org      " target="_blank">维基百科</a></li> 
+     <li><a href=" https://fstos.me/user       " target="_blank">翻山梯</a></li> 
+     <li><a href="https://cn.bing.com/" target="_blank">必应</a></li> 
+     <li><a href=" https://www.baidu.com       " target="_blank">百度</a></li> 
+     <li><a href="http://www.17sucai.com" target="_blank">17素材网</a></li> 
+     <li><a href="https://wanwang.aliyun.com/" target="_blank">万网</a></li> 
+     <li><a href="https://www.aliyun.com/" target="_blank">阿里云</a></li> 
+     <li><a href=" https://hsk.oray.com/       " target="_blank">花生壳</a></li> 
+     <li><a href="  https://github.com/      " target="_blank">GitHub</a></li> 
+	 <li><a href=" http://maven.aliyun.com/nexus/content/groups/public/       " target="_blank">阿里MVN</a></li>
+     <li><a href="https://repo.maven.apache.org/maven2/       " target="_blank">MVN中央仓库</a></li> 
+	 <li><a href="https://search.maven.org/        " target="_blank">MVN坐标</a></li>
+     <li><a href="http://tool.oschina.net/codeformat/css      " target="_blank">html/js在线格式化</a></li> 
+     <li><a href=" https://plugins.jetbrains.com/       " target="_blank">idea插件库</a></li> 
+     <li><a href=" https://www.centoschina.cn/       " target="_blank">centos</a></li> 
+     <li><a href=" https://www.apache.org/       " target="_blank">apache</a></li> 
+	 <li><a href="https://spring.io/        " target="_blank">Spring</a></li> 
+     <li><a href="https://stackoverflow.com/        " target="_blank">stackoverflow</a></li> 
+      
+     <li><a href=" https://www.sinacloud.com/?from=baidu_web       " target="_blank">新浪云</a></li> 
+      
+     
+     <li><a href=" https://www.highcharts.com.cn/       " target="_blank">highchart</a></li> 
+     <li><a href=" https://studio.dev.tencent.com/       " target="_blank">腾讯云空间</a></li> 
+     <li><a href="  https://www.nbegame.com/      " target="_blank">NBE游戏</a></li> 
+     <li><a href=" https://blog.csdn.net/qq51860/article/details/85087485       " target="_blank">游戏外挂是怎么做成的..谈游戏外挂制作原理</a></li> 
+     <li><a href=" https://bbs.125.la/       " target="_blank">精易论坛</a></li> 
+     <li><a href=" http://www.mlshxt.net/       " target="_blank">木林森</a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+    </div> 
+    <div class="tab-pane fade" id="学习"> 
+     <li><a href="http://www.runoob.com/        " target="_blank">菜鸟网</a></li> 
+	 <li><a href="http://www.wuhouge.com/index.php        " target="_blank">武侯阁</a></li>
+	 <li><a href=" https://www.runoob.com/jeasyui/jqueryeasyui-tutorial.html       " target="_blank">EASYUI</a></li>
+	 <li><a href=" http://www.runoob.com/w3cnote/linux-useful-command.html       " target="_blank">linux命令</a></li> 
+     <li><a href=" https://www.w3cschool.cn/oraclejc/oraclejc-dxgu2qqt.html       " target="_blank">oracle教程</a></li> 
+	 <li><a href=" http://www.neitui.me/       " target="_blank">内推网</a></li> 
+	 <li><a href=" https://www.w3cschool.cn/tutorial       " target="_blank">w3school.cn</a></li> 
+	 <li><a href=" http://www.runoob.com/w3cnote/common-english-terminology-in-programming.html       " target="_blank">英语词汇</a></li>
+	 <li><a href=" https://www.docker-cn.com/       " target="_blank">docker官网</a></li>
+	 <li><a href="https://liaoxuefeng.com/        " target="_blank">廖雪峰</a></li> 
+	 <li><a href="http://www.bootcss.com/        " target="_blank">bootstrap中文网</a></li>
+	 <li><a href=" http://www.atguigu.com/       " target="_blank">尚硅谷</a></li>
+     <li><a href="http://www.js211.com/platform.html" target="_blank">名博学府</a></li> 
+     <li><a href=" https://leetcode-cn.com/       " target="_blank">力扣</a></li> 
+     <li><a href="https://www.zhihu.com/        " target="_blank">知乎</a></li> 
+     <li><a href="https://www.cnblogs.com/" target="_blank">博客园</a></li> 
+     <li><a href="https://www.csdn.net/" target="_blank">CSDN</a></li> 
+     <li><a href="  https://start.spring.io/      " target="_blank">SpringBoot</a></li> 
+     <li><a href="  https://nanjing.zbj.com/      " target="_blank">猪八戒</a>&nbsp;&nbsp;</li> 
+     <li><a href="   https://www.jfh.com/     " target="_blank">解放号</a></li> 
+     <li><a href=" https://www.clouderwork.com/       " target="_blank">云沃客</a></li> 
+     <li><a href=" https://codemart.com/       " target="_blank">码市</a></li> 
+     <li><a href=" https://www.proginn.com/       " target="_blank">程序员客栈</a></li> 
+     <li><a href=" http://www.itheima.com/       " target="_blank">黑马程序员</a></li> 
+     <li><a href=" http://yuanxue365.com/       " target="_blank">猿学 </a></li> 
+     <li><a href=" https://www.wdgf.cn/       " target="_blank">武当道士 </a></li> 
+      
+     <li><a href=" http://www.jq22.com/       " target="_blank">JQ22</a></li> 
+     <li><a href="http://jsoup.org/        " target="_blank">jsoup爬虫</a></li> 
+     <li><a href="http://sourceforge.net/projects/archive-crawler/files/        " target="_blank">Heritrix爬虫</a></li> 
+     <li><a href="https://www.html.cn/        " target="_blank">html中文网</a></li> 
+     <li><a href=" http://www.miguyu.com/       " target="_blank">咪咕鱼</a></li> 
+     <li><a href=" http://www.4243.net/       " target="_blank">大木虫学术</a></li> 
+     <li><a href="https://wht.im/        " target="_blank">万花筒</a></li> 
+      
+     <li><a href=" http://www.gulixueyuan.com/       " target="_blank">谷粒学院</a></li> 
+     <li><a href=" https://www.jetbrains.com/       " target="_blank">jetbrains</a></li> 
+     <li><a href=" https://juejin.im/       " target="_blank">掘金</a></li> 
+     <li><a href=" https://www.lintcode.com/zh-cn/       " target="_blank">领扣</a></li> 
+     <li><a href="https://lingkou.com/        " target="_blank">lingkou</a></li> 
+     <li><a href=" https://www.nowcoder.com/       " target="_blank">牛客网</a></li> 
+     <li><a href="  https://www.infoq.cn/      " target="_blank">infoq</a></li> 
+     <li><a href="www.52programer.com        " target="_blank">吾爱程序员</a></li> 
+      
+     <li><a href="http://www.520it.com/        " target="_blank">小码哥</a></li> 
+     
+     
+     
+     <li><a href=" https://www.cnblogs.com/jiangbei/p/8462294.html       " target="_blank">Thymeleaf百里香叶子</a></li>
+	 <li><a href=" https://blog.csdn.net/wangmx1993328/article/category/7789394       " target="_blank">springBoot的所有整合</a></li> 
+     <li><a href=" https://blog.csdn.net/u012706811/article/details/52185345       " target="_blank">Thymeleaf模板</a></li> 
+     <li><a href="  http://layer.layui.com/      " target="_blank">web弹出层layer</a></li> 
+      
+     <li><a href=" http://sishuok.com/       " target="_blank">私塾在线</a></li>
+	 <li><a href=" https://fishc.com.cn/forum.php       " target="_blank">小甲鱼</a></li> 
+     <li><a href=" https://fishc.com.cn/thread-1053-1-1.html       " target="_blank">小甲鱼2</a></li> 
+     <li><a href=" https://blog.csdn.net/u011890101/article/details/73087776       " target="_blank">thymeleaf标签之th:href的使用,拼接字符</a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li>
+	 <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li>
+     
+      
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+    </div> 
+    <div class="tab-pane fade" id="娱乐"> 
+     <li><a href="https://bing.ioliu.cn/        " target="_blank">必应壁纸</a></li> 
+     <li><a href="https://music.163.com" target="_blank">网易云音乐</a></li> 
+     <li><a href="https://www.bilibili.com/" target="_blank">哔哩哔哩</a></li> 
+     <li><a href="http://www.4399.com/" target="_blank">4399</a></li> 
+     <li><a href="  https://weibo.com/    " target="_blank">微博</a></li> 
+     <li><a href=" https://www.douyu.com/      " target="_blank">斗 </a></li> 
+     <li><a href=" https://www.huya.com/      " target="_blank">虎 </a></li> 
+     <li><a href=" http://tvvtvv.com       " target="_blank"> 全球电视 </a></li> 
+     <li><a href="  https://twitter.com/      " target="_blank">推特</a></li> 
+     <li><a href=" https://www.facebook.com/       " target="_blank">facebook</a></li> 
+     <li><a href="https://www.yxgapp.com/        " target="_blank">译学馆</a></li> 
+     <li><a href="http://www.weather.com.cn/live/        " target="_blank">天气</a></li> 
+     <li><a href=" http://www.meijuniao.com/       " target="_blank">美剧鸟</a></li> 
+     <li><a href=" http://www.qmaile.com/       " target="_blank">全民解析</a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+    </div> 
+    <div class="tab-pane fade" id="文档"> 
+	 <li><a href="https://www.cnblogs.com/sunxucool/p/3225818.html      " target="_blank">nginx文档</a></li> 
+     <li><a href=" https://baike.baidu.com/item/%E7%94%B5%E6%B5%81%E5%AF%86%E5%BA%A6/8630176?fr=aladdin       " target="_blank">电流密度</a></li> 
+     <li><a href=" https://baike.baidu.com/item/%E7%94%B5%E6%B5%81/268192?fromtitle=%E7%94%B5%E6%B5%81%E5%BC%BA%E5%BA%A6&amp;fromid=5333886       " target="_blank">电流</a></li> 
+     <li><a href="https://baike.baidu.com/item/%E5%AE%89%E5%9F%B9%E5%8A%9B%E5%AE%9A%E5%BE%8B        " target="_blank">安培力定律</a></li> 
+     <li><a href="https://baike.baidu.com/item/%E6%B4%9B%E4%BC%A6%E5%85%B9%E5%8A%9B        " target="_blank">洛伦兹力</a></li> 
+     <li><a href="https://baike.baidu.com/item/%E7%94%B5%E6%B5%81%E9%80%9F%E6%96%AD%E4%BF%9D%E6%8A%A4/10101108        " target="_blank">电流速断保护</a></li> 
+     <li><a href=" https://baike.baidu.com/item/nginx/3817705?fr=aladdin       " target="_blank">NGINX</a></li> 
+     <li><a href="https://blog.csdn.net/yhclt/article/details/79309237        " target="_blank">OpenResty</a></li> 
+     <li><a href=" https://baike.baidu.com/item/Tengine/2232817?fr=aladdin       " target="_blank">Tengine</a></li> 
+     <li><a href="https://wenku.baidu.com/view/350eaf750b4e767f5acfcea2.html        " target="_blank">小母线</a></li> 
+     <li><a href=" http://www.cnblogs.com/skynet/archive/2011/05/03/2035105.html#_1.%E5%9F%BA%E7%A1%80%E7%9F%A5%E8%AF%86       " target="_blank">字符集和字符编码</a></li> 
+     <li><a href="https://baike.baidu.com/item/%E5%86%85%E7%BD%91ip        " target="_blank">内网ip</a></li> 
+     <li><a href="http://www.ityouknow.com/springboot/2018/06/12/spring-boo-java-simple.html        " target="_blank">关于springboot</a></li> 
+     <li><a href="https://baike.baidu.com/item/%E7%B1%BB%E5%8F%98%E9%87%8F/1715366        " target="_blank">类变量</a></li> 
+     <li><a href="https://baike.baidu.com/item/%E5%AE%9E%E4%BE%8B%E5%8F%98%E9%87%8F/3386159?fr=aladdin        " target="_blank">实例变量</a></li> 
+     <li><a href=" https://baike.baidu.com/item/%E4%BF%AE%E9%A5%B0%E7%AC%A6/4088564?fr=aladdin       " target="_blank">修饰符</a></li> 
+     <li><a href="https://blog.csdn.net/g_codes/article/details/79036131        " target="_blank">访问修饰符</a></li> 
+     <li><a href="https://www.cnblogs.com/lixiaolun/p/4311727.html        " target="_blank">成员修饰符</a></li> 
+     <li><a href="https://www.cnblogs.com/lixiaolun/p/4311775.html        " target="_blank">内</a></li> 
+     <li><a href="http://www.blogjava.net/Jack2007/archive/2008/05/21/202018.html        " target="_blank">存</a></li> 
+     <li><a href=" https://baike.baidu.com/item/body/8442526       " target="_blank">body</a></li> 
+     <li><a href="https://baike.baidu.com/item/http/243074        " target="_blank">http</a></li> 
+     <li><a href=" https://www.cnblogs.com/Anker/p/6056540.html       " target="_blank">正向/反向代理</a></li> 
+     <li><a href="https://developer.mozilla.org/zh-CN/docs/Web/HTTP/Basics_of_HTTP/MIME_types        " target="_blank">MIME</a></li> 
+     <li><a href=" http://www.runoob.com/jsp/jsp-writing-filters.html       " target="_blank">过滤器</a></li> 
+     <li><a href=" http://www.runoob.com/jsp/jsp-jstl.html       " target="_blank">JSTL</a></li> 
+     <li><a href="http://www.runoob.com/jsp/jsp-expression-language.html        " target="_blank">EL</a></li> 
+     <li><a href="http://kindeditor.net/demo.php        " target="_blank">kindeditor</a></li> 
+     <li><a href=" https://ckeditor.com/       " target="_blank">ckeditor</a></li> 
+     <li><a href="https://www.cnblogs.com/yonyong/p/9049871.html        " target="_blank">varStatus属性</a></li> 
+     <li><a href=" https://www.cnblogs.com/zeroingToOne/p/8992746.html       " target="_blank">@Requestparam( )</a></li> 
+     <li><a href="http://www.w3school.com.cn/jsref/dom_obj_anchor.asp        " target="_blank">ANCHOR对象</a></li> 
+     <li><a href=" http://www.mbxf999.com/jxshow_5_394.html       " target="_blank">论文</a></li> 
+     <li><a href="http://www.runoob.com/html/html5-webstorage.html        " target="_blank">WEB存储</a></li> 
+     <li><a href="https://www.cnblogs.com/jing99/p/6947549.html        " target="_blank">Map、Set、List</a></li> 
+     <li><a href=" https://www.cnblogs.com/andydao/p/6043963.html       " target="_blank">数据库隔离级别</a></li> 
+     <li><a href=" https://blog.csdn.net/qq_29932025/article/details/70239812       " target="_blank">4线程</a></li> 
+     <li><a href=" https://www.cnblogs.com/hapjin/p/4678773.html       " target="_blank">synchronize修饰方法</a></li> 
+     <li><a href=" https://www.cnblogs.com/Qian123/p/5691705.html       " target="_blank">方法,变量同步</a></li> 
+     <li><a href=" https://blog.csdn.net/langb2014/article/details/79376349       " target="_blank">c的堆栈</a></li> 
+     <li><a href=" https://blog.csdn.net/qq_31997407/article/details/79675371       " target="_blank">java堆栈</a></li> 
+     <li><a href=" http://www.91ri.org/14777.html       " target="_blank">洋葱路由</a></li> 
+     <li><a href=" https://www.cnblogs.com/quiland/p/4081654.html       " target="_blank">sql索引失效1</a></li> 
+     <li><a href="https://blog.csdn.net/jojoy_tester/article/details/71104104        " target="_blank">sql索引失效2</a></li> 
+     <li><a href=" https://blog.csdn.net/starlh35/article/details/78735510       " target="_blank">主从同步读写分离 </a></li> 
+     <li><a href=" https://zhidao.baidu.com/question/134714085162255925.html       " target="_blank">this super与静态方法 </a></li> 
+     <li><a href=" https://www.cnblogs.com/syp172654682/p/8082625.html       " target="_blank">常量池 </a></li> 
+     <li><a href=" https://blog.csdn.net/qq_38409944/article/details/81458987       " target="_blank">java爬虫 </a></li> 
+     <li><a href=" https://www.cnblogs.com/imyalost/p/7189455.html       " target="_blank">连接池,线程池 </a></li> 
+     <li><a href=" https://www.jianshu.com/p/7c3bb0672b22       " target="_blank"> 常量池 </a></li> 
+     <li><a href=" https://www.cnblogs.com/freedommovie/p/8041314.html       " target="_blank">对象池 </a></li> 
+     <li><a href="https://blog.csdn.net/wangpeng047/article/details/19624529        " target="_blank">httpclient </a></li> 
+     <li><a href=" https://blog.csdn.net/hnd978142833/article/details/80253784       " target="_blank">4种线程池 </a></li> 
+     <li><a href=" http://www.runoob.com/ajax/ajax-tutorial.html      " target="_blank">AJAX </a></li> 
+     <li><a href=" http://www.runoob.com/jquery/jquery-ajax-intro.html       " target="_blank"> JQ的AJAX </a></li> 
+     <li><a href=" http://www.runoob.com/json/json-jsonp.html       " target="_blank">jsonp </a></li> 
+     <li><a href=" https://blog.csdn.net/heliangb46/article/details/77853788       " target="_blank">单例对象的方法线程安全 </a></li> 
+     <li><a href=" https://www.cnblogs.com/wslook/p/9185448.html       " target="_blank">mybatis的#和$ </a></li> 
+     <li><a href=" http://www.runoob.com/redis/redis-data-types.html       " target="_blank">redis数据类型 </a></li> 
+     <li><a href=" https://blog.csdn.net/houshaolin/article/details/76408399       " target="_blank"> dubbo是什么 </a></li> 
+     <li><a href="https://www.cnblogs.com/imyalost/p/7062784.html?utm_source=itdadao&amp;utm_medium=referral        " target="_blank">jemeter压力测试软件 </a></li> 
+     <li><a href=" https://www.cnblogs.com/lojunren/p/3856290.html       " target="_blank">epoll </a></li> 
+     <li><a href=" https://blog.csdn.net/a23006239/article/details/47442867       " target="_blank">单列集合 </a></li> 
+     <li><a href=" https://www.cnblogs.com/chonh/p/6099605.html       " target="_blank"> java参数传递问题 </a></li> 
+     <li><a href=" https://zhidao.baidu.com/question/1510413878014474900.html       " target="_blank">方法参数类型 </a></li> 
+     <li><a href=" https://blog.csdn.net/testcs_dn/article/details/80225584       " target="_blank">切面,过滤,拦截器 </a></li> 
+     <li><a href=" https://www.cnblogs.com/boblogsbo/p/5602122.html       " target="_blank">mysql的锁机制 </a></li> 
+     <li><a href=" https://www.cnblogs.com/dolphin0520/p/3920407.html       " target="_blank">threadlocal </a></li> 
+     <li><a href=" https://www.cnblogs.com/lcplcpjava/p/6896904.html       " target="_blank"> 线程的join方法 </a></li> 
+     <li><a href=" http://www.importnew.com/14958.html       " target="_blank">线程的方法yield </a></li> 
+     <li><a href=" https://www.cnblogs.com/linkstar/p/6043846.html       " target="_blank">线程的sleep与wait </a></li> 
+     <li><a href=" https://www.iteye.com/topic/103804       " target="_blank">还是threadlocal </a></li> 
+     <li><a href=" https://www.cnblogs.com/itlove/p/3644824.html       " target="_blank">aop及拦截器 </a></li> 
+     <li><a href=" https://www.cnblogs.com/biehongli/p/6479440.html       " target="_blank">分页 </a></li> 
+     <li><a href=" https://www.cnblogs.com/ygj0930/p/6134851.html       " target="_blank">三种分页思想 </a></li> 
+     <li><a href="https://blog.csdn.net/weixin_37352094/article/details/80500202        " target="_blank"> JMS </a></li> 
+     <li><a href=" https://blog.csdn.net/lz1170063911/article/details/80033798       " target="_blank">宜立方总结 </a></li> 
+     <li><a href=" https://www.jianshu.com/p/aa35c8703d61       " target="_blank">数据库事物 </a></li> 
+     <li><a href="  https://www.cnblogs.com/chinesern/p/5581422.html     " target="_blank"> mongoDB与Redis的区别 </a></li> 
+     <li><a href=" http://www.divcss5.com/rumen/r403.shtml       " target="_blank">绝对定位 </a></li> 
+     <li><a href="https://zhidao.baidu.com/question/466527811.html        " target="_blank"> css图片大小 </a></li> 
+     <li><a href="        " target="_blank">js改变css </a></li> 
+     <li><a href=" https://www.cnblogs.com/boboooo/p/7169388.html       " target="_blank">jsp权限 </a></li> 
+     <li><a href=" https://baike.baidu.com/item/httpd/1278211?fr=aladdin       " target="_blank">httpd</a></li> 
+     <li><a href=" http://www.runoob.com/linux/linux-shell.html       " target="_blank">shell</a></li> 
+     <li><a href=" http://www.runoob.com/docker/docker-tutorial.html       " target="_blank">docker</a></li> 
+     <li><a href="http://www.runoob.com/mongodb/mongodb-tutorial.html        " target="_blank">MonGoDB</a></li> 
+     <li><a href=" http://www.runoob.com/jsp/jsp-tutorial.html       " target="_blank">JSP</a></li> 
+     <li><a href="http://www.runoob.com/w3cnote        " target="_blank">菜鸟笔记</a></li> 
+	 <li><a href=" https://blog.csdn.net/wingzhezhe/article/details/78493335       " target="_blank">dubbox</a></li>
+     <li><a href=" https://baike.baidu.com/item/%E5%86%85%E5%AE%B9%E5%88%86%E5%8F%91%E7%BD%91%E7%BB%9C/4034265?fr=aladdin       " target="_blank">CDN</a></li> 
+    
+     <li><a href=" https://baike.baidu.com/item/Swap%E5%88%86%E5%8C%BA/7613378?fr=aladdin       " target="_blank">swap</a></li> 
+     <li><a href=" https://baike.baidu.com/item/fastcgi/10880685?fr=aladdin       " target="_blank">fastCGI</a></li> 
+     <li><a href="https://baike.baidu.com/item/Cache-control/1885913?fr=aladdin        " target="_blank">Cache-control</a></li> 
+     <li><a href="https://blog.csdn.net/tao_627/article/details/22044583        " target="_blank">设置favicon.ico</a></li> 
+     <li><a href=" https://www.cnblogs.com/qiumingcheng/p/5891305.html       " target="_blank">禁止ico</a></li> 
+     <li><a href=" https://blog.csdn.net/lqlqlq007/article/details/79940017       " target="_blank">max-age</a></li> 
+     <li><a href=" https://www.cnblogs.com/kevingrace/p/6198287.html       " target="_blank">nginx内存缓存</a></li> 
+     <li><a href=" https://www.cnblogs.com/panxuejun/p/7715917.html       " target="_blank">拦截器和过滤器的区别</a></li> 
+     <li><a href=" https://www.cnblogs.com/zhaoguhong/p/6937364.html       " target="_blank">java反射机制</a></li> 
+     <li><a href=" https://blog.csdn.net/yw_1207/article/details/78706701       " target="_blank">什么是severlet容器</a></li> 
+     <li><a href=" https://www.cnblogs.com/widget90/p/5640359.html       " target="_blank">servlet</a></li> 
+     <li><a href="https://www.cnblogs.com/ABook/p/5527341.html        " target="_blank">string常用方法</a></li> 
+     <li><a href="  https://blog.csdn.net/yeshengchao/article/details/84000644      " target="_blank">Java中的List、Set和Map的各自特征及使用场景</a></li> 
+     <li><a href=" https://blog.csdn.net/feicongcong/article/details/77439223       " target="_blank">什么情况下会有线程安全问题</a></li> 
+     <li><a href=" https://www.oschina.net/question/1165356_144254       " target="_blank">什么叫无状态对象</a></li> 
+     <li><a href="https://www.jianshu.com/p/98b68c97df9b        " target="_blank">ThreadLocal</a></li> 
+	 <li><a href=" https://www.sojson.com/shiro       " target="_blank">shiro</a></li> 
+     <li><a href="  https://blog.csdn.net/u011890101/article/details/73087776      " target="_blank">th:href的使用</a></li> 
+     <li><a href="  https://www.cnblogs.com/kakafra/p/3336020.html      " target="_blank">linux的rpm命令</a></li> 
+     <li><a href="  https://zhidao.baidu.com/question/258766635.html      " target="_blank">linux的-与--</a></li> 
+	 <li><a href=" https://www.cnblogs.com/gudeyeyu/p/9762580.html      " target="_blank">阿里云下安装mysql</a></li> 
+     <li><a href="  https://blog.csdn.net/wwd0501/article/details/71171614#commentBox      " target="_blank">linux下mysql 64位 成功</a></li> 
+     <li><a href=" https://baike.baidu.com/item/%E4%BA%8C%E7%BA%A7%E5%9F%9F%E5%90%8D/4778701?fr=aladdin       " target="_blank">二级域名</a></li> 
+     <li><a href="  https://www.cnblogs.com/package-java/p/10380780.html      " target="_blank">导入maven报红叉</a></li> 
+	 <li><a href=" https://www.cnblogs.com/crawl/p/7703679.html       " target="_blank">JPA</a></li> 
+     <li><a href=" https://baike.baidu.com/item/Aspectj/4830848?fr=aladdin       " target="_blank">AspectJ</a></li> 
+     <li><a href=" https://baike.baidu.com/item/Applet/2723730?fr=aladdin       " target="_blank">Applet</a></li> 
+     <li><a href=" http://www.cnblogs.com/ysw-go/p/6010646.html       " target="_blank">XML文档头</a></li> 
+	 <li><a href=" https://www.w3cschool.cn/wkspring/8kei1icc.html       " target="_blank">spring</a></li> 
+     <li><a href=" https://www.jianshu.com/p/7b5860be190f       " target="_blank">日志门面slf4j</a></li> 
+     <li><a href="        " target="_blank">日志实现log4j</a></li> 
+     <li><a href=" https://blog.csdn.net/qq_38339561/article/details/85104156       " target="_blank">？占位符的使用问题</a></li> 
+	 <li><a href=" https://blog.csdn.net/skkw111/article/details/82819082       " target="_blank">java代码中拼接sql</a></li> 
+     <li><a href=" https://blog.csdn.net/ywl470812087/article/details/80320146       " target="_blank">Autowired(required=true)</a></li> 
+     <li><a href=" https://www.cnblogs.com/xiaotiaosi/p/6398371.html       " target="_blank">连接池</a></li> 
+     <li><a href="  https://www.cnblogs.com/accumulater/p/6077558.html      " target="_blank">删除表数据</a></li> 
+	 <li><a href="  https://www.cnblogs.com/elliottzheng/p/9060159.html      " target="_blank">CopyTranslator</a></li> 
+     <li><a href=" https://blog.csdn.net/u014553029/article/details/80971878       " target="_blank">SpringBoot+jdbc+thymeleaf</a></li> 
+     <li><a href=" https://blog.csdn.net/qq_33314107/article/details/80834894       " target="_blank">thymeleaf和freemarker比较</a></li> 
+     <li><a href=" https://blog.csdn.net/wq1039822486/article/details/79649806       " target="_blank">IDEA+JDK1.8+Maven++SpringBoot+MySQL+JDBC+thymeleaf</a></li> 
+	 <li><a href="  https://blog.csdn.net/immenselee/article/details/73068366      " target="_blank">JAVA将ResultSet结果集遍历到List中</a></li> 
+     <li><a href=" https://blog.csdn.net/majunzhu/article/details/84257643       " target="_blank">thymeleaf循环遍历 属性</a></li> 
+     <li><a href=" https://zachary-guo.iteye.com/blog/1503352       " target="_blank">redirect</a></li> 
+     <li><a href=" https://www.cnblogs.com/springboot/p/8729405.html       " target="_blank">springboot的jar打包部署</a></li> 
+	 <li><a href=" http://www.cnblogs.com/yoyotl/p/7214222.html       " target="_blank">tomcat外部静态资源映射</a></li> 
+	 <li><a href=" https://blog.csdn.net/weixin_40423597/article/details/80643990       " target="_blank">@Autowired 与@Resource的区别</a></li> 
+     <li><a href="  https://blog.csdn.net/qq_36567005/article/details/80611139      " target="_blank">@Qualifier</a></li> 
+     <li><a href=" https://www.cnblogs.com/lyjing/p/8427832.html       " target="_blank">@component</a></li> 
+     <li><a href=" https://www.cnblogs.com/1214804270hacker/p/9299462.html       " target="_blank">请求动静分离</a></li> 
+	 <li><a href=" https://blog.csdn.net/cringkong/article/details/80274148       " target="_blank">zero copy</a></li> 
+     <li><a href="http://blog.sina.com.cn/s/blog_97b4973a0102yep4.html        " target="_blank">springboot+thymeleaf+nginx实现动态页面静态化</a></li> 
+     <li><a href=" https://blog.csdn.net/qq_34579313/article/details/82024058       " target="_blank">shiro+thymeleaf 整合</a></li> 
+     <li><a href=" https://blog.csdn.net/fly_leopard/article/details/78498804       " target="_blank">application.properties默认配置</a></li> 
+     <li><a href=" https://lug.ustc.edu.cn/wiki/mirrors/help/docker       " target="_blank">科技大学docker镜像</a></li> 
+     <li><a href=" https://blog.csdn.net/long476964/article/details/80626930       " target="_blank">@Component和@Configuration作为配置类的差别</a></li> 
+     <li><a href=" https://www.cnblogs.com/feiyu127/p/7700090.html       " target="_blank">@Bean 的用法</a></li> 
+	 <li><a href=" https://baike.baidu.com/item/SourceTree/2046763       " target="_blank">source tree</a></li> 
+     <li><a href=" https://www.cnblogs.com/qiankun-site/p/5774300.html       " target="_blank">@requestBody注解的使用</a></li> 
+     <li><a href=" http://www.runoob.com/ajax/ajax-tutorial.html       " target="_blank">AJAX教程</a></li> 
+	 <li><a href="  https://blog.csdn.net/sinat_33625560/article/details/85342166      " target="_blank">mybatis-plus的使用</a></li> 
+     <li><a href=" https://www.cnblogs.com/-luoyu/p/5043685.html       " target="_blank">json的长度</a></li> 
+     <li><a href=" https://blog.csdn.net/wq6ylg08/article/details/80523082       " target="_blank">idead clean报错,找不到java.exe</a></li> 
+     <li><a href=" https://blog.csdn.net/linjpg/article/details/73322881       " target="_blank">idea Tomcat 部署 war和war exploded的区别</a></li> 
+	  
+     <li><a href=" https://baike.baidu.com/item/%E5%90%8C%E6%AD%A5%E8%B0%83%E7%9B%B8%E6%9C%BA/4355236?fr=aladdin       " target="_blank">同步调相机</a></li> 
+     <li><a href=" https://www.cnblogs.com/duanxz/p/5516558.html       " target="_blank">Apache Thrift</a></li> 
+     <li><a href=" https://blog.csdn.net/qq_16855077/article/details/84788723       " target="_blank">springboot后台启动</a></li> 
+     <li><a href=" https://blog.csdn.net/u014580622/article/details/52705478       " target="_blank">配置eclipse中本地约束文件</a></li> 
+     <li><a href=" https://ask.hellobi.com/blog/weiwei/5159       " target="_blank">Fiddler如何抓取HTTPS协议的网页</a></li> 
+     <li><a href=" https://blog.csdn.net/d1240673769/article/details/74298429       " target="_blank">Fiddler死活抓不了HTTPS包解决办法</a></li> 
+	 <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+	 <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+	 <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+	 <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+	 <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+	 <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+	 <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+    </div> 
+    <div class="tab-pane fade" id="生活"> 
+     <li><a href="http://www.jd.com" target="_blank">京东</a></li> 
+     <li><a href="http://www.taobao.com" target="_blank">淘宝</a></li> 
+     <li><a href="https://pc.qq.com/" target="_blank">腾讯软件中心</a></li> 
+     <li><a href=" http://www.gov.cn/       " target="_blank">中央人民政府</a></li> 
+     <li><a href="  http://www.gsxt.gov.cn/index.html      " target="_blank">国家企业信用信息系统</a></li> 
+     <li><a href="  https://www.tianyancha.com/      " target="_blank">天眼查</a></li> 
+     <li><a href="  https://www.qichacha.com/      " target="_blank">企查查</a></li> 
+     <li><a href="https://www.kanzhun.com/        " target="_blank">看准网</a></li> 
+     <li><a href="  http://www.cnki.net/      " target="_blank">中国知网</a></li> 
+     <li><a href=" https://www.chsi.com.cn/xlcx/index.jsp       " target="_blank">学信网</a></li> 
+     <li><a href="http://www.12333sb.com/        " target="_blank">社保查询</a></li> 
+     <li><a href=" http://www.mohrss.gov.cn/       " target="_blank">中国人力资源社会保障部</a></li> 
+     <li><a href=" https://www.hxjx360.com/       " target="_blank">鸿学金信</a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     
+    </div> 
+    <div class="tab-pane fade" id="招聘"> 
+     <li><a href="  https://www.zhipin.com/      " target="_blank">boss直聘1</a></li> 
+     <li><a href=" https://www.51job.com/       " target="_blank">前程无忧2</a></li> 
+     <li><a href=" https://ts.zhaopin.com/jump/index_new.html?utm_source=baidupcpz&amp;utm_medium=cpt&amp;utm_provider=partner&amp;sid=121113803&amp;site=null       " target="_blank">智联招聘3</a></li> 
+     <li><a href=" https://www.liepin.com/     " target="_blank">猎聘4</a></li> 
+     <li><a href=" https://www.lagou.com/       " target="_blank">拉钩网5</a></li> 
+     <li><a href="  https://58.com      " target="_blank">58同城</a></li> 
+     <li><a href=" http://maimai.cn/       " target="_blank">脉脉</a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li>
+     
+    </div> 
+    <div class="tab-pane fade" id="工具"> 
+    <li><a href="http://tool.oschina.net/codeformat/css      "  target="_blank">html/js在线格式化</a></li>
+    <li><a href="http://tool.oschina.net/jscompress        " target="_blank">代码压缩</a></li> 
+	<li><a href="http://www.faviconico.org/        " target="_blank">ico</a></li> 
+    <li><a href="http://www.dingdingdingdingding.cn:8080       " target="_blank">www.dingdingdingdingding.cn:8080 </a></li> 
+	<li><a href="http://www.dingdingdingdingding.cn      " target="_blank">www.dingdingdingdingding.cn</a></li> 
+     <li><a href=" http://192.168.159.132/       " target="_blank">http://192.168.159.132/ nginx</a></li> 
+     <li><a href=" http://47.111.20.125/      " target="_blank">47.111.20.125</a></li>
+      <li><a href="http://localhost     " target="_blank">localhost</a></li> 
+     <li><a href="http://47.111.20.125:81        " target="_blank">47.111.20.125:81</a></li>
+	 <li><a href=" https://218.94.37.251       " target="_blank">网御VPN</a></li> 
+	  
+     <li><a href="  http://localhost:8080/sgcc/protect/      " target="_blank">local_sgcc.html</a></li>
+	  <li><a href=" http://localhost:8080/sgcc/doc.html       " target="_blank">local_sgcc.doc</a></li> 
+     <li><a href="http://relaypro.dcloud.sd.dc.sgcc.com.cn/sgcc/protect/index.html        " target="_blank">山东国网继电保护</a></li>
+	 <li><a href=" http://home.dcloud.sd.dc.sgcc.com.cn:8087/QueryStatistics/homepage/index.html       " target="_blank">调度云首页地址</a></li> 
+     <li><a href=" http://home.dcloud.sd.dc.sgcc.com.cn:8087/QueryStatistics/tinyapps/DccEmployee/main.html?index=1&condition=%257B%2522DCC.company_id%2522%253A%25220010370100%2522%257D       " target="_blank">机构</a></li>
+     <li><a href=" http://localhost:8080/       " target="_blank">localhost:8080</a></li> 
+     <li><a href=" http://47.111.20.125:8080/dubbo-admin/       " target="_blank">http://47.111.20.125:8080/dubbo-admin/DUBBO监控中心</a></li>
+	 <li><a href=" http://192.168.159.132:8081/dubbo-admin       " target="_blank">192.168.159.132:8081/dubbo-admin监控中心</a></li> 
+     <li><a href="        " target="_blank"></a></li>
+	 <li><a href="        " target="_blank"></a></li> 
+     <li><a href="        " target="_blank"></a></li>
+    </div>
+   </div> 
+  </div>  
+ </body>
+</html>

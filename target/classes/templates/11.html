@@ -1,0 +1,52 @@
+<!--注册页-->
+		<div id="register_fa">
+			<div id="register_win">
+				<a class="close" href="javascript:closeRegister();">
+					<img src="img/top/close.png" />
+				</a>
+				<form id="register" method="post" onsubmit="return checkRegisterForm()">
+					<div>
+						<!--<div class="register"><span>注册</span></div>-->
+						<div class="register">
+							<h4>用户名：<span id="registerName"></span></h4>
+							<input type="text" name="loginName" id="Name" onfocus="register(this)" onblur="checkName()"/>
+						</div>
+					    <div class="register">
+					    	<h4>密码：<span id="registerPwd"></span></h4>
+					    	<input type="password" name="loginPwd" id="regPwd" onfocus="register(this)" onblur="checkPwd()"/>
+					    </div>
+					    <div class="register">
+					    	<h4>确认密码：<span id="registerPwd1"></span></h4>
+					    	<input type="password" name="loginPwd1" id="regPwd1" onfocus="register(this)" onblur="checkrPwd()"/>
+					    </div>
+					    <div class="register">
+					    	<h4>验证码：<span id="verificationCode"></span></h4>
+					    	<input type="text" name="verCode" id="verCode"  onfocus="register(this)" onblur="checkCode()"/>
+					    	<div><img src="<%=request.getContextPath()%>/createCode" id="createCode"/></div>
+					    </div>
+					    <button class="botton_sub" type="submit" >立即注册</button>
+					</div>	
+				</form>
+			</div>
+		</div>
+		<!--登入页 -->
+		<div id="login_fa">
+			<div id="login_win">
+				<a class="close" href="javascript:closeLogin();">
+					<img src="img/top/close.png" />
+				</a>
+				<form id="login" method="post" onsubmit="return checkForm()">
+					<div>
+						<div class="login">
+							<h4>用户名：<span id="loginName"></span></h4>
+							<input type="text" name="loginuserName" id="loginName2" onfocus="register(this)" onblur="synUser()"/>
+						</div>
+					    <div class="login">
+					    	<h4>密码：<span id="VerifyregisterPwd"></span></h4>
+					    	<input type="password" name="loginPwd" id="VerifyPwd" onfocus="register(this)" onblur="VerifyPass()"/>
+					    </div>
+					    <button class="botton_sub" type="submit">立即登入</button>
+					</div>	
+				</form>
+			</div>
+		</div>
